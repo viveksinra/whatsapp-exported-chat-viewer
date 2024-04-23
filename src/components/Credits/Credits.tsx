@@ -2,7 +2,7 @@ function Credits() {
   return (
     <div>
       <small>
-        Made by <a href="https://viveksinra.com">Vivek</a>
+        Made by <a href="https://twitter.com/viveksinra">Vivek</a>
         <br />
         View{' '}
         <a href="https://github.com/viveksinra/whatsapp-exported-chat-viewer">
