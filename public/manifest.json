@@ -1,6 +1,6 @@
 {
-  "short_name": "WhatsApp Parser",
-  "name": "WhatsApp Chat Parser",
+  "short_name": "Chat Viewer",
+  "name": "WhatsApp Exported Chat Viewer",
   "icons": [
     {
       "src": "favicon.ico",
