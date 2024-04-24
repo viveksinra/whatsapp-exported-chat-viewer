@@ -33,6 +33,26 @@ function Message({
   const isSystem = !message.author;
   const dateTime = message.date.toISOString().slice(0, 19).replace('T', ' ');
 
+  // Function to format message with attachment object
+  const formatMessage = (message: IndexedMessage) => {
+    
+    if (message.message.includes('.pdf (file attached)')) {
+      const fileName = message.message.split('.pdf')[0];
+      return {
+        ...message,
+        attachment: {
+          fileName: fileName + ".pdf"
+        },
+        message: undefined // Remove the message property
+      };
+    }
+    return message;
+  };
+
+  // Format the message
+  const formattedMessage = formatMessage(message);
+  
+
   return (
     <S.Item
       isSystem={isSystem}
@@ -47,13 +67,13 @@ function Message({
           {!isSystem && !sameAuthorAsPrevious && (
             <S.Author color={color}>{message.author}</S.Author>
           )}
-          {message.attachment ? (
-            <Suspense fallback={`Loading ${message.attachment.fileName}...`}>
-              <Attachment fileName={message.attachment.fileName} />
+          {formattedMessage.attachment ? (
+            <Suspense fallback={`Loading ${formattedMessage.attachment.fileName}...`}>
+              <Attachment fileName={formattedMessage.attachment.fileName} />
             </Suspense>
           ) : (
             <Linkify componentDecorator={Link}>
-              <S.Message>{message.message}</S.Message>
+              <S.Message>{formattedMessage.message}</S.Message>
             </Linkify>
           )}
         </S.Wrapper>

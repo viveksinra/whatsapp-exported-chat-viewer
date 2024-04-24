@@ -3,6 +3,7 @@ import { parseString } from 'whatsapp-chat-parser';
 import { DateBounds, ExtractedFile, IndexedMessage } from '../types';
 
 const getMimeType = (fileName: string) => {
+  console.log(fileName)
   if (/\.jpe?g$/.test(fileName)) return 'image/jpeg';
   if (fileName.endsWith('.png')) return 'image/png';
   if (fileName.endsWith('.gif')) return 'image/gif';

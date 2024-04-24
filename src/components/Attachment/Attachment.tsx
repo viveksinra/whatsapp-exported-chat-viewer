@@ -8,7 +8,7 @@ import { useIsMounted } from '../../hooks/useIsMounted';
 const renderAttachment = (fileName: string, attachment: string) => {
   const mimeType = getMimeType(fileName) || '';
   const src = `data:${mimeType};base64,${attachment}`;
-
+console.log(mimeType)
   if (mimeType.startsWith('image/')) {
     return <img src={src} title={fileName} alt="" />;
   }
@@ -21,6 +21,20 @@ const renderAttachment = (fileName: string, attachment: string) => {
   }
   if (mimeType.startsWith('audio/')) {
     return <audio controls src={src} title={fileName} />;
+  }
+
+  console.log(mimeType)
+  if (mimeType.startsWith('pdf/')) {
+    return (
+      <div>
+        <object data={src} type="application/pdf" width="50" height="50">
+          <embed src={src} type="application/pdf" />
+        </object>
+        <a href={src} download={fileName}>
+          Download {fileName}
+        </a>
+      </div>
+    );
   }
   return (
     <a href={attachment} download={fileName}>

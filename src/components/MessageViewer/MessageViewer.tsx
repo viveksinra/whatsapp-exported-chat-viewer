@@ -37,7 +37,6 @@ function MessageViewer() {
       ),
     [participants],
   );
-
   const renderedMessages =
     filterMode === 'index'
       ? messages.slice(limits.low - 1, limits.high)

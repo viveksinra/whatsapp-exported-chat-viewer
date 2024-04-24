@@ -5,9 +5,9 @@ function Credits() {
         Made by <a href="https://twitter.com/viveksinra">Vivek</a>
         <br />
         View{' '}
-        <a href="https://github.com/viveksinra/whatsapp-exported-chat-viewer">
+        {/* <a href="https://github.com/viveksinra/whatsapp-exported-chat-viewer">
           Source code
-        </a>
+        </a> */}
       </small>
     </div>
   );
