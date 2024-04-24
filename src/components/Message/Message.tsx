@@ -43,7 +43,6 @@ function Message({
         attachment: {
           fileName: fileName + ".pdf"
         },
-        message: undefined // Remove the message property
       };
     }
     return message;
