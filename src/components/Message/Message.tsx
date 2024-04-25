@@ -67,9 +67,13 @@ function Message({
             <S.Author color={color}>{message.author}</S.Author>
           )}
           {formattedMessage.attachment ? (
-            <Suspense fallback={`Loading ${formattedMessage.attachment.fileName}...`}>
+               <Linkify componentDecorator={Link}>
+                 <Suspense fallback={`Loading ${formattedMessage.attachment.fileName}...`}>
               <Attachment fileName={formattedMessage.attachment.fileName} />
             </Suspense>
+               <S.Message>{formattedMessage.message}</S.Message>
+             </Linkify>
+           
           ) : (
             <Linkify componentDecorator={Link}>
               <S.Message>{formattedMessage.message}</S.Message>
